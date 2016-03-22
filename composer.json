@@ -1,0 +1,23 @@
+{
+    "name": "pcz/deferred-kdyby-events",
+    "description": "deferred kdyby events helpers for doctrine2 and nette",
+    "authors": [
+        {
+            "name": "petrofcz",
+            "email": "petrof91@gmail.com"
+        }
+    ],
+    "require": {
+        "kdyby/events": "^3.0",
+        "kdyby/doctrine": "^3.0",
+        "kdyby/console": "^2.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "pcz\\DeferredKdybyEvents\\": "src/"
+        },
+        "classmap": [
+            "src/pcz/DeferredKdybyEvents/exceptions.php"
+        ]
+    }
+}

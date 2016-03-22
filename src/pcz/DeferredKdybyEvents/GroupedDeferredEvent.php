@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\EntityListeners({"GroupingListener"})
+ * @ORM\HasLifecycleCallbacks
  */
 abstract class GroupedDeferredEvent extends DeferredEvent {
 
@@ -20,7 +21,7 @@ abstract class GroupedDeferredEvent extends DeferredEvent {
 
 	/**
 	 * @var GroupedDeferredEvent|null
-	 * @ORM\ManyToOne(targetEntity="GroupedDeferredEvent")
+	 * @ORM\ManyToOne(targetEntity="pcz\DeferredKdybyEvents\GroupedDeferredEvent")
 	 */
 	protected $successor;
 
@@ -29,5 +30,13 @@ abstract class GroupedDeferredEvent extends DeferredEvent {
 	 * @return string grouping key - all the events with this key will be grouped and time will be set to the last one's.
 	 */
 	public abstract function getGroupKey();
+
+	/**
+	 * @ORM\PrePersist
+	 * @internal
+	 */
+	public function updateGroupKey() {
+		$this->group_key = $this->getGroupKey();
+	}
 
 }
