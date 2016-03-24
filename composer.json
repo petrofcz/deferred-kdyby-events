@@ -8,9 +8,9 @@
         }
     ],
     "require": {
-        "kdyby/events": "^2.4",
-        "kdyby/doctrine": "^2.3",
-        "kdyby/console": "^2.4"
+        "kdyby/events": ">=2.4",
+        "kdyby/doctrine": ">=2.3",
+        "kdyby/console": ">=2.4"
     },
     "autoload": {
         "psr-0": {
