@@ -1,7 +1,7 @@
 pcz/deferred-kdyby-events
 ======
 deferred events extension for Nette framework (using [kdyby/events](https://packagist.org/packages/kdyby/events) & [kdyby/doctrine](https://packagist.org/packages/kdyby/doctrine))
-*aneb **až** bude Bavorov...*
+*aneb ~~kdyby~~ až bude Bavorov...*
 
 
 This extension of kdyby/events event system provides support of deferred events in your appliaction.
