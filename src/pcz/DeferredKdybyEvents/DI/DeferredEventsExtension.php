@@ -11,7 +11,9 @@ use pcz\DeferredKdybyEvents\GroupingListener;
 
 class DeferredEventsExtension extends CompilerExtension implements IEntityProvider {
 
-	protected $defaults = [];
+	protected $defaults = [
+		'exceptionHandler'  =>  NULL
+	];
 
 	public function loadConfiguration()
 	{
@@ -30,6 +32,14 @@ class DeferredEventsExtension extends CompilerExtension implements IEntityProvid
 			->setClass(FireDeferredEventsCommand::class)
 			->setInject(false)->setAutowired(false)
 			->addTag(ConsoleExtension::TAG_COMMAND);
+
+		if ($config['exceptionHandler'] !== NULL) {
+			$eventDispatcher->addSetup('setExceptionHandler', $this->filterArgs($config['exceptionHandler']));
+		}
+	}
+
+	private function filterArgs($statement) {
+		return \Nette\DI\Compiler::filterArguments(array(is_string($statement) ? new \Nette\DI\Statement($statement) : $statement));
 	}
 
 	/**
